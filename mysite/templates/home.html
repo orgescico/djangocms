@@ -1,0 +1,228 @@
+{% extends 'base.html' %}
+{% load cms_tags %}
+{% block title %}{% page_attribute 'page_title' %}{% endblock %}
+{% block content %}
+
+    <style>
+    #bg_img{
+        height: 100vh;
+        min-height: 650px;
+        padding-bottom: 0;
+        padding-top: 0;
+        width: 100%;
+    }
+    .hovereffect {
+  width: 100%;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  cursor: default;
+  background: #42b078;
+}
+
+.hovereffect .overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  padding: 50px 20px;
+}
+
+.hovereffect img {
+  display: block;
+  position: relative;
+  max-width: none;
+  width: calc(100% + 20px);
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: translate3d(-10px,0,0);
+  transform: translate3d(-10px,0,0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.hovereffect:hover img {
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+
+.hovereffect h2 {
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  font-size: 17px;
+  overflow: hidden;
+  padding: 0.5em 0;
+  background-color: transparent;
+}
+
+.hovereffect h2:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  content: '';
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: transform 0.35s;
+  -webkit-transform: translate3d(-100%,0,0);
+  transform: translate3d(-100%,0,0);
+}
+
+.hovereffect:hover h2:after {
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+
+.hovereffect a, .hovereffect p {
+  color: #FFF;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: translate3d(100%,0,0);
+  transform: translate3d(100%,0,0);
+}
+
+.hovereffect:hover a, .hovereffect:hover p {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+    .container_ribbon{
+        padding-left: 0!important;
+        padding-right: 0!important;
+    }
+    .map_style{
+            height: 500px;
+            width: 500px;
+    }
+    </style>
+    <header class="masthead text-center text-white d-flex" id="home">
+        {% static_placeholder 'header' %}
+{#      <div class="container my-auto">#}
+{#        <div class="row">#}
+{#          <div class="col-lg-10 mx-auto">#}
+{#            <h1 class="text-uppercase">#}
+{#              <strong>Your Favorite Source of Free Bootstrap Themes</strong>#}
+{#            </h1>#}
+{#            <hr>#}
+{#          </div>#}
+{#          <div class="col-lg-8 mx-auto">#}
+{#            <p class="text-faded mb-5">Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>#}
+{#            <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>#}
+{#          </div>#}
+{#        </div>#}
+{#      </div>#}
+    </header>
+    <section class="bg-primary" id="about">
+    {% static_placeholder 'about' %}
+{#      <div class="container">#}
+{#        <div class="row">#}
+{#          <div class="col-lg-8 mx-auto text-center">#}
+{#            <h2 class="section-heading text-white">We've got what you need!</h2>#}
+{#            <hr class="light my-4">#}
+{#            <p class="text-faded mb-4">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>#}
+{#            <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Get Started!</a>#}
+{#          </div>#}
+{#        </div>#}
+{#      </div>#}
+    </section>
+    <section id="image_ribbon" style="padding-top: 0;padding-bottom: 20px;">
+    {% static_placeholder 'image_ribbon' %}
+{#      <div class="container">#}
+{#        <div class="row">#}
+{#          <div class="col-lg-8 mx-auto text-center">#}
+{#            <h2 class="section-heading text-white">We've got what you need!</h2>#}
+{#            <hr class="light my-4">#}
+{#            <p class="text-faded mb-4">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>#}
+{#            <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Get Started!</a>#}
+{#          </div>#}
+{#        </div>#}
+{#      </div>#}
+    </section>
+    <section id="services" style="padding-top: 40px;padding-bottom: 20px;">
+    {% static_placeholder 'services' %}
+{#      <div class="container">#}
+{#        <div class="row">#}
+{#          <div class="col-lg-12 text-center">#}
+{#            <h2 class="section-heading">At Your Service</h2>#}
+{#            <hr class="my-4">#}
+{#          </div>#}
+{#        </div>#}
+{#      </div>#}
+{#      <div class="container">#}
+{#        <div class="row">#}
+{#          <div class="col-lg-3 col-md-6 text-center">#}
+{#            <div class="service-box mt-5 mx-auto">#}
+{#              <i class="fa fa-4x fa-diamond text-primary mb-3 sr-icons" data-sr-id="2" style="; visibility: visible;  -webkit-transform: scale(1); opacity: 1;transform: scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: transform 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; "></i>#}
+{#              <h3 class="mb-3">Sturdy Templates</h3>#}
+{#              <p class="text-muted mb-0">Our templates are updated regularly so they don't break.</p>#}
+{#            </div>#}
+{#          </div>#}
+{#          <div class="col-lg-3 col-md-6 text-center">#}
+{#            <div class="service-box mt-5 mx-auto">#}
+{#              <i class="fa fa-4x fa-paper-plane text-primary mb-3 sr-icons" data-sr-id="3" style="; visibility: visible;  -webkit-transform: scale(1); opacity: 1;transform: scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: transform 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; "></i>#}
+{#              <h3 class="mb-3">Ready to Ship</h3>#}
+{#              <p class="text-muted mb-0">You can use this theme as is, or you can make changes!</p>#}
+{#            </div>#}
+{#          </div>#}
+{#          <div class="col-lg-3 col-md-6 text-center">#}
+{#            <div class="service-box mt-5 mx-auto">#}
+{#              <i class="fa fa-4x fa-newspaper-o text-primary mb-3 sr-icons" data-sr-id="4" style="; visibility: visible;  -webkit-transform: scale(1); opacity: 1;transform: scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: transform 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; "></i>#}
+{#              <h3 class="mb-3">Up to Date</h3>#}
+{#              <p class="text-muted mb-0">We update dependencies to keep things fresh.</p>#}
+{#            </div>#}
+{#          </div>#}
+{#          <div class="col-lg-3 col-md-6 text-center">#}
+{#            <div class="service-box mt-5 mx-auto">#}
+{#              <i class="fa fa-4x fa-heart text-primary mb-3 sr-icons" data-sr-id="5" style="; visibility: visible;  -webkit-transform: scale(1); opacity: 1;transform: scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: transform 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; "></i>#}
+{#              <h3 class="mb-3">Made with Love</h3>#}
+{#              <p class="text-muted mb-0">You have to make your websites with love these days!</p>#}
+{#            </div>#}
+{#          </div>#}
+{#        </div>#}
+{#      </div>#}
+    </section>
+
+    <section id="team">
+    {% static_placeholder 'team' %}
+{#      <div class="container">#}
+{#        <div class="row">#}
+{#          <div class="col-lg-8 mx-auto text-center">#}
+{#            <h2 class="section-heading">Let's Get In Touch!</h2>#}
+{#            <hr class="my-4">#}
+{#            <p class="mb-5">Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>#}
+{#          </div>#}
+{#        </div>#}
+{#        <div class="row">#}
+{#          <div class="col-lg-4 ml-auto text-center">#}
+{#            <i class="fa fa-phone fa-3x mb-3 sr-contact" data-sr-id="8" style="; visibility: visible;  -webkit-transform: scale(1); opacity: 1;transform: scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: transform 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; "></i>#}
+{#            <p>123-456-6789</p>#}
+{#          </div>#}
+{#          <div class="col-lg-4 mr-auto text-center">#}
+{#            <i class="fa fa-envelope-o fa-3x mb-3 sr-contact" data-sr-id="9" style="; visibility: visible;  -webkit-transform: scale(1); opacity: 1;transform: scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: transform 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; "></i>#}
+{#            <p>#}
+{#              <a href="mailto:your-email@your-domain.com">feedback@startbootstrap.com</a>#}
+{#            </p>#}
+{#          </div>#}
+{#        </div>#}
+{#      </div>#}
+    </section>
+
+    <section id="contact">
+    {% static_placeholder 'contact' %}
+    </section>
+
+    {% placeholder 'content' %}
+
+{% endblock %}

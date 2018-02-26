@@ -1,0 +1,28 @@
+<li class="nav-item">
+  <a class="nav-link js-scroll-trigger" href="#home">Home</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link js-scroll-trigger" href="#about">About</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link js-scroll-trigger" href="#team">Team</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+</li>
+
+{#{% load menu_tags %}#}
+{##}
+{#{% for child in children %}#}
+{#<li class="child{% if child.selected %} selected{% endif %}{% if child.ancestor %} ancestor{% endif %}{% if child.sibling %} sibling{% endif %}{% if child.descendant %} descendant{% endif %}">#}
+{#	<a href="{{ child.attr.redirect_url|default:child.get_absolute_url }}">{{ child.get_menu_title }}</a>#}
+{#	{% if child.children %}#}
+{#	<ul>#}
+{#		{% show_menu from_level to_level extra_inactive extra_active template "" "" child %}#}
+{#	</ul>#}
+{#	{% endif %}#}
+{#</li>#}
+{#{% endfor %}#}
